@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>日历</title>
+    <style>
+        *{ padding: 0; margin: 0; }
+        ul li  { list-style-type: none;}
+        ul { width: 180px; height: 300px; margin: 0 auto; }
+        ul li { float: left; width: 50px; height: 50px; margin: 0 10px 20px 0;background-color: #ccc; }
+        ul li h2 { font-size: 16px; color: #fff; line-height: 30px; text-align: center; }
+
+        .active { background-color: red}
+
+        .month-block { text-align: center; }
+
+    </style>
+
+    <script>
+        window.onload = function() {
+            var contentA = [
+                    "1",
+                    "2",
+                    "3",
+                    "4",
+                    "5",
+                    "6",
+                    "7",
+                    "8",
+                    "9",
+                    "10",
+                    "11",
+                    "12",
+            ];
+
+            var oLi = document.getElementById("dataLi").getElementsByTagName("li");
+
+            var oMonth = document.getElementById("monthBlock");
+
+            for (var i = 0; i < oLi.length; i++) {
+                oLi[i].index = i;
+
+                oLi[i].onmouseover = function() {
+                    for (var j = 0; j < oLi.length; j++) {
+                        oLi[j].className = "";
+                    }
+
+                    this.className = "active";
+
+                    oMonth.innerHTML = "<h2>" + (this.index + 1) + "月份</h2><p>"+ contentA[this.index] + "</p>";
+                }
+            }
+
+        }
+
+
+
+
+    </script>
+</head>
+<body>
+<div class="">
+    <ul id="dataLi">
+        <li>
+            <h2>1</h2>
+            <span></span>
+        </li>
+        <li>
+            <h2>2</h2>
+            <span></span>
+        </li>
+        <li>
+            <h2>3</h2>
+            <span></span>
+        </li>
+        <li>
+            <h2>4</h2>
+            <span></span>
+        </li>
+        <li>
+            <h2>5</h2>
+            <span></span>
+        </li>
+        <li>
+            <h2>6</h2>
+            <span></span>
+        </li>
+        <li>
+            <h2>7</h2>
+            <span></span>
+        </li>
+        <li>
+            <h2>8</h2>
+            <span></span>
+        </li>
+        <li>
+            <h2>9</h2>
+            <span></span>
+        </li>
+        <li>
+            <h2>10</h2>
+            <span></span>
+        </li>
+        <li>
+            <h2>11</h2>
+            <span></span>
+        </li>
+        <li>
+            <h2>12</h2>
+            <span></span>
+        </li>
+    </ul>
+
+    <div class="month-block" id="monthBlock">
+        <h2>1月份</h2>
+        <p>1</p>
+    </div>
+</div>
+</body>
+</html>

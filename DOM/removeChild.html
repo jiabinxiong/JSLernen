@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <script>
+        window.onload = function() {
+            var aLi = document.getElementById("ul").getElementsByTagName("li");
+
+            for (var i = 0; i < aLi.length; i++) {
+                aLi[i].children[0].onclick = function() {
+                    document.getElementById("ul").removeChild(this.parentNode);
+                }
+            }
+
+        }
+    </script>
+</head>
+<body>
+<ul id="ul">
+   <li>adfaafd<a href="javascript:;">删除</a></li>
+   <li>211111<a href="javascript:;">删除</a></li>
+   <li>2222<a href="javascript:;">删除</a></li>
+   <li>d<a href="javascript:;">删除</a></li>
+   <li>adfaafd<a href="javascript:;">删除</a></li>
+</ul>
+</body>
+</html>

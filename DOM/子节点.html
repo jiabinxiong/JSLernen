@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <script>
+        window.onload = function() {
+            var oUl = document.getElementById("ul");
+
+            //childNodes IE 6 - 8
+
+            //用这个获取 子节点
+//            for (var i = 0; i < oUl.childNodes.length; i++) {
+//                //nodeType == 3 -> 文本节点
+//                //nodeType == 1 => 元素节点
+//
+//                if (oUl.childNodes[i].nodeType == 1) {
+//                    oUl.childNodes[i].style.background = "red";
+//                }
+//            }
+
+
+            //推荐用这个获取 子节点
+            for (var i = 0; i < oUl.children.length; i++) {
+                oUl.children[i].style.background = "red";
+            }
+
+        };
+    </script>
+</head>
+<body>
+<ul id="ul">
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+</ul>
+</body>
+</html>

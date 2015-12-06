@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>参数求和</title>
+
+    <script>
+        function sum() {
+            //console.log(arguments.length);
+            //console.loo(arguments[0];
+
+
+            var result = 0;
+
+            for (var i = 0; i < arguments.length; i++) {
+                //result = result + arguments[i];
+                result += arguments[i];
+            }
+
+            return result;
+        }
+
+        console.log(sum(12, 6, 9));
+    </script>
+</head>
+<body>
+
+</body>
+</html>

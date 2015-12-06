@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>选项卡</title>
+    <style>
+        .active { background-color: yellow}
+        div { width: 200px; height: 200px; background-color: #ccc; display: none; }
+    </style>
+    <script>
+        window.onload = function() {
+
+            var sInput = document.getElementsByTagName("input");
+
+            var sDiv = document.getElementsByTagName("div");
+
+            for (var i = 0; i < sInput.length; i++) {
+
+                sInput[i].index = i;
+                sInput[i].onclick = function() {
+                    for (var j = 0; j < sInput.length; j++) {
+                        sInput[j].className = "";
+                        sDiv[j].style.display = "none";
+                    }
+
+                    sDiv[this.index].style.display = "block";
+                    this.className = "active";
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+<input type="button" value="1" class="active"/>
+<input type="button" value="2"/>
+<input type="button" value="3"/>
+<input type="button" value="4"/>
+
+<div style="display: block;">111</div>
+<div>222</div>
+<div>333</div>
+<div>444</div>
+</body>
+</html>

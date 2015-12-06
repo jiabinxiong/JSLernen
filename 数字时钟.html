@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        body { font-size: 150px; }
+        img  { width: 150px; }
+    </style>
+    <script>
+        function toDou(n) {
+            if (n < 10) {
+                return "0" + n;
+            } else {
+                return "" + n;
+            }
+        }
+
+        window.onload = function() {
+            var aImg = document.getElementById("div1").getElementsByTagName("img");
+            var aImg1 = document.getElementById("div2").getElementsByTagName("img");
+
+
+            function aa (oDateStr, oImg) {
+                for (var i = 0; i < oImg.length; i++) {
+                    oImg[i].src = "img/" + oDateStr.charAt(i) + ".jpg";
+                }
+            };
+
+            function tick() {
+                var oDate = new Date();
+                var dateStr = toDou(oDate.getHours()) + toDou(oDate.getMinutes()) + toDou(oDate.getSeconds());
+
+                aa(dateStr, aImg);
+
+            }
+
+            setInterval(tick, 1000);
+            tick();
+
+
+            function tick2() {
+                var oDate = new Date();
+                var dateStr = toDou(oDate.getFullYear()) + toDou(oDate.getMonth()+1) + toDou(oDate.getDate());
+
+                aa(dateStr, aImg1);
+
+            }
+
+            setInterval(tick2, 1000);
+
+            tick2();
+
+
+
+        }
+    </script>
+</head>
+<body>
+<div id="div1">
+    <img src="img/0.jpg">
+    <img src="img/0.jpg">
+    :
+    <img src="img/0.jpg">
+    <img src="img/0.jpg">
+    :
+    <img src="img/0.jpg">
+    <img src="img/0.jpg">
+</div>
+
+<div id="div2">
+    <img src="img/0.jpg">
+    <img src="img/0.jpg">
+    <img src="img/0.jpg">
+    <img src="img/0.jpg">
+    年
+    <img src="img/0.jpg">
+    <img src="img/0.jpg">
+    月
+    <img src="img/0.jpg">
+    <img src="img/0.jpg">
+    日
+</div>
+
+</body>
+</html>

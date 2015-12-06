@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+
+    <script>
+        var arr1 = [2, 3, 4, 5, 7];
+        var arr2 = [2, 1, 4, 8, 9];
+
+        var numArr = [];
+
+        for (var i = 0; i < arr1.length; i++) {
+            for(var g = 0; g < arr2.length; g++) {
+                if (arr1[i] == arr2[g]) {
+                    numArr.push(arr2[g]);
+                }
+            }
+        }
+
+        console.log(numArr);
+    </script>
+</head>
+<body>
+
+</body>
+</html>

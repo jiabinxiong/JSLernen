@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <script>
+        window.onload = function() {
+            var oTab = document.getElementById("tab1");
+            var oldColor = "";
+
+            //console.log(oTab.tBodies); <tbody>
+            //console.log(oTab.tBodies.rows); <tr>
+            //console.log(oTab.tBodies.rows.cells); <td>
+
+            //隔行变色
+            //鼠标移入高亮
+            function mouseColor () {
+                for (var i = 0; i < oTab.tBodies[0].rows.length; i++) {
+                    oTab.tBodies[0].rows[i].onmouseover = function() {
+                        oldColor = this.style.background;
+
+                        this.style.background = "green";
+                    };
+
+                    oTab.tBodies[0].rows[i].onmouseout = function() {
+                        this.style.background = oldColor;
+                    };
+
+                    if (i % 2) {
+                        oTab.tBodies[0].rows[i].style.background = "";
+                    } else {
+                        oTab.tBodies[0].rows[i].style.background = "#ccc";
+                    }
+                }
+            }
+
+            //mouseColor();
+
+
+            //添加、删除一行
+            var oName = document.getElementById("name");
+            var oAge = document.getElementById("age");
+            var oBtn = document.getElementById("btn1");
+            var idNumber = oTab.tBodies[0].rows.length + 1;
+
+            oBtn.onclick = function() {
+                var createTr = document.createElement("tr");
+                var createTd = "<td></td>" +
+                                "<td></td>" +
+                                "<td></td>" +
+                                "<td><a href='javascript:;'>删除</a></td>";
+
+                createTr.innerHTML = createTd;
+                createTr.cells[0].innerHTML = idNumber++;
+                createTr.cells[1].innerHTML = oName.value;
+                createTr.cells[2].innerHTML = oAge.value;
+
+                createTr.cells[3].getElementsByTagName("a")[0].onclick = function() {
+                    oTab.tBodies[0].removeChild(this.parentNode.parentNode);
+                };
+
+                oTab.tBodies[0].appendChild(createTr);
+
+                mouseColor();
+            };
+
+
+            //查找
+            var oName1 = document.getElementById("name1");
+            var oBtn2 = document.getElementById("btn2");
+
+            oBtn2.onclick = function() {
+                for (var i = 0; i < oTab.tBodies[0].rows.length; i++) {
+                    var sTab = oTab.tBodies[0].rows[i].cells[1].innerHTML.toLowerCase();
+                    var sText = oName1.value.toLocaleLowerCase();
+
+                    var arrStr = sText.split("");
+                    //toLowerCase 转成大写
+
+                    oTab.tBodies[0].rows[i].style.display = "none";
+
+                    for (var j = 0; j < arrStr.length; j++) {
+                        if(sTab.search(sText[j]) != -1) {
+                            console.log("a");
+                            oTab.tBodies[0].rows[i].style.display = "block";
+                        }
+                    }
+
+                }
+            };
+        };
+    </script>
+</head>
+<body>
+姓名:<input type="text" id="name"/>
+年龄:<input type="text" id="age"/>
+<input type="button" value="添加" id="btn1"/><br>
+
+查找姓名:<input type="text" id="name1"/>
+<input type="button" value="搜索" id="btn2"/><br>
+
+<table id="tab1" border="1" width="500">
+    <thead>
+        <td>ID</td>
+        <td>姓名</td>
+        <td>午龄</td>
+        <td>操作</td>
+    </thead>
+
+    <tbody>
+        <tr>
+            <td>1</td>
+            <td>Jiabin</td>
+            <td>10</td>
+            <td><a href="javascript:;">删除</a></td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>李四</td>
+            <td>19</td>
+            <td><a href="javascript:;">删除</a></td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td>赵四</td>
+            <td>25</td>
+            <td><a href="javascript:;">删除</a></td>
+        </tr>
+        <tr>
+            <td>4</td>
+            <td>赵二</td>
+            <td>25</td>
+            <td><a href="javascript:;">删除</a></td>
+        </tr>
+        <tr>
+            <td>5</td>
+            <td>赵五</td>
+            <td>40</td>
+            <td><a href="javascript:;">删除</a></td>
+        </tr>
+        <tr>
+            <td>6</td>
+            <td>刘大</td>
+            <td>40</td>
+            <td><a href="javascript:;">删除</a></td>
+        </tr>
+        <tr>
+            <td>7</td>
+            <td>大人</td>
+            <td>30</td>
+            <td><a href="javascript:;">删除</a></td>
+        </tr>
+    </tbody>
+</table>
+</body>
+</html>

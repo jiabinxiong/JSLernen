@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+
+        #div1 { width: 100px; height: 100px; background-color: #ccc; display: none;}
+    </style>
+
+    <script>
+        function showHide() {
+            var oDiv = document.getElementById("div1");
+
+
+            (oDiv.style.display == "block") ? oDiv.style.display = "none" : oDiv.style.display = "block";
+
+
+
+//            switch(oDiv.style.display) {
+//                case "block":
+//                    oDiv.style.display = "none";
+//                    break;
+//                default:
+//                    oDiv.style.display = "block";
+//            }
+
+
+//            if (oDiv.style.display == "block") {
+//                oDiv.style.display = "none";
+//                console.log("1");
+//            } else  {
+//                oDiv.style.display = "block";
+//                console.log("2");
+//            }
+        }
+    </script>
+</head>
+<body>
+<input value="隐藏显示" type="button" onclick="showHide()"/>
+<div id="div1">
+
+</div>
+</body>
+</html>

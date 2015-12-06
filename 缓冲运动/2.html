@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        #div1 { width: 100px; height: 100px; background-color: red; position: absolute; top: 50px; left: 600px; }
+        #div2 { width: 1px; height: 500px; background-color: #000; position: absolute; top: 0; left: 300px; }
+    </style>
+    <script>
+        window.onload = function() {
+            var oBtn = document.getElementById("btn1");
+            var oDiv = document.getElementById("div1");
+
+            var timer = null;
+
+            oBtn.onclick = function() {
+                clearInterval(timer);
+
+                timer = setInterval(function() {
+                    //1> (300 - 0) / 4 = 75;
+                    //控制快慢 数越大越慢
+                    var speed = (300 - oDiv.offsetLeft) / 20;
+                    //speed = Math.ceil(speed);//Math.ceil 向上取整
+                    //speed = Math.floor(speed);//Math.floor 向下取整
+                    //如果说speed 是负数那 左着走 是正数 右走
+
+                    //如果说speed 大于0  那么就是 右走
+                    speed = speed > 0 ? Math.ceil(speed) : Math.floor(speed);
+
+                    if (oDiv.offsetLeft == 300) {
+                        clearInterval(timer);
+                    } else {
+                        oDiv.style.left = oDiv.offsetLeft + speed + "px";
+                    }
+
+                } ,30)
+            };
+        };
+    </script>
+</head>
+<body>
+<input type="button" id="btn1" value="开始运动"/>
+<div id="div1"></div>
+<div id="div2"></div>
+</body>
+</html>
